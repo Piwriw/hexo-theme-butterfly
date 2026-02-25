@@ -1045,4 +1045,7 @@ inject:
   head:
     - <script src="/js/welcome.js"></script>
     - <script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script>
+    - <link rel="stylesheet" href="/css/categories.css">
+  bottom:
+    - <script src="/js/categories.js" defer></script>
 flink_style: flexcard # butterfly | volantis | flexcard
