@@ -43,7 +43,7 @@ const postTabs = (args, content) => {
   tabNav = `<div class="nav-tabs${noDefault ? ' no-default' : ''}">${tabNav}</div>`
   tabContent = `<div class="tab-contents">${tabContent}</div>`
 
-  return `<div class="tabs">${tabNav}${tabContent}${toTop}</div>`
+  return `<div class="tabs swiss-tabs">${tabNav}${tabContent}${toTop}</div>`
 }
 
 hexo.extend.tag.register('tabs', postTabs, { ends: true })

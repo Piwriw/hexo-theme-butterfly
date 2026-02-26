@@ -75,3 +75,13 @@ if theme.blog_title_font && theme.blog_title_font.font_link
 include ./head/config_site.pug
 
 !=fragment_cache('injectHead', function(){return injectHtml(theme.inject.head)})
+
+//- Archive page Swiss Modernism fonts
+if globalPageType === 'archive'
+  link(href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap', rel='stylesheet')
+  link(rel='stylesheet', href=url_for('/css/archives.css'))
+
+//- Tags page Swiss Modernism fonts
+if globalPageType === 'tag'
+  link(href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap', rel='stylesheet')
+  link(rel='stylesheet', href=url_for('/css/tabs.css'))
