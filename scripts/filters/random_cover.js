@@ -56,7 +56,7 @@ hexo.extend.generator.register('post', locals => {
       coverVal = randomCover // update coverVal
     }
 
-    if (coverVal && (coverVal.indexOf('//') !== -1 || imgTestReg.test(coverVal))) {
+    if (coverVal && typeof coverVal === 'string' && (coverVal.indexOf('//') !== -1 || imgTestReg.test(coverVal))) {
       data.cover_type = 'img'
     }
 
