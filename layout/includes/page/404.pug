@@ -6,3 +6,10 @@
   .error-info
     h1.error_title= '404'
     .error_subtitle= theme.error_404.subtitle || _p('error404')
+    .error-actions
+      a.error-action.primary(href=url_for('/') aria-label="返回首页")
+        i.fas.fa-house
+        span 返回首页
+      a.error-action(href=url_for('/archives/') aria-label="浏览文章归档")
+        i.fas.fa-clock-rotate-left
+        span 浏览归档

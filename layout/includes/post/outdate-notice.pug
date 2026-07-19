@@ -1,8 +1,9 @@
 - const { limit_day, message_prev, message_next, position} = theme.noticeOutdate
 - const notice_data = { limitDay: limit_day, messagePrev: message_prev, messageNext: message_next, postUpdate: full_date(page.updated)}
+- const renderedPostContent = typeof articleBody === 'string' ? articleBody : page.content
 if position === 'top'
   #post-outdate-notice(data=notice_data hidden)
-  !=page.content
+  !=renderedPostContent
 else
-  !=page.content
+  !=renderedPostContent
   #post-outdate-notice(data=notice_data hidden)

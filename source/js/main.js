@@ -28,12 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
       btf.overflowPaddingR.add()
       btf.animateIn(document.getElementById('menu-mask'), 'to_show 0.5s')
       document.getElementById('sidebar-menus').classList.add('open')
+      const toggleMenu = document.getElementById('toggle-menu')
+      toggleMenu && toggleMenu.setAttribute('aria-expanded', 'true')
       mobileSidebarOpen = true
     },
     close: () => {
       btf.overflowPaddingR.remove()
       btf.animateOut(document.getElementById('menu-mask'), 'to_hide 0.5s')
       document.getElementById('sidebar-menus').classList.remove('open')
+      const toggleMenu = document.getElementById('toggle-menu')
+      toggleMenu && toggleMenu.setAttribute('aria-expanded', 'false')
       mobileSidebarOpen = false
     }
   }

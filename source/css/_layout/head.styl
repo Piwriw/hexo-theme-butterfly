@@ -95,7 +95,7 @@
     height: 400px
 
     +maxWidth768()
-      height: 360px
+      height: 400px
 
   #post-info
     position: absolute
@@ -257,7 +257,26 @@
 
       > .meta-firstline,
       > .meta-secondline
-        display: inline
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        gap: 4px 10px
+
+      > .meta-firstline > span,
+      > .meta-secondline > span
+        display: inline-flex
+        align-items: center
+        min-height: 24px
+
+      > .meta-firstline > .post-meta-separator,
+      > .meta-secondline > .post-meta-separator
+        display: none
+
+      span.post-meta-separator
+        display: none
+
+      .post-meta-label
+        margin-right: 3px
 
     .post-meta
       &-separator
@@ -318,7 +337,13 @@
 
   #toggle-menu
     display: none
-    padding: 2px 0 0 6px
+    min-width: 44px
+    min-height: 44px
+    border: 0
+    padding: 0 0 0 6px
+    background: transparent
+    color: inherit
+    font: inherit
     vertical-align: top
 
     &:hover
@@ -410,11 +435,21 @@
       display: none
 
   #search-button
-    display: inline
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    min-width: 44px
+    min-height: 44px
+    border: 0
     padding: 0 0 0 14px
+    background: transparent
+    color: inherit
+    font: inherit
 
   .site-page
     position: relative
+    display: inline-flex
+    align-items: center
     padding-bottom: 6px
     text-shadow: 1px 1px 2px rgba($dark-black, .3)
     font-size: .78em

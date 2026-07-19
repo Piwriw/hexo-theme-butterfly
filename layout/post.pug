@@ -5,11 +5,23 @@ block content
     if top_img === false
       include includes/header/post-info.pug
 
+    - const articleSource = String(page.content || '')
+    - const firstHeading = articleSource.match(/^(?:\s*<!--[\s\S]*?-->\s*)*<h1(?:\s[^>]*)?>[\s\S]*?<\/h1>\s*/i)
+    - const decodeHeading = value => value.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim()
+    - const articleHeading = firstHeading ? decodeHeading(firstHeading[0]) : ''
+    - const pageHeading = decodeHeading(String(page.title || ''))
+    - const removeDuplicateHeading = firstHeading && articleHeading === pageHeading
+    - const firstHeadingIdMatch = removeDuplicateHeading ? firstHeading[0].match(/\sid="([^"]+)"/i) : null
+    - const firstHeadingId = firstHeadingIdMatch ? firstHeadingIdMatch[1] : ''
+    - const articleBody = removeDuplicateHeading ? articleSource.slice(firstHeading[0].length) : articleSource
+
     article#article-container.container.post-content
+      if firstHeadingId
+        span.post-title-anchor(id=firstHeadingId aria-hidden="true")
       if theme.noticeOutdate.enable && page.noticeOutdate !== false
         include includes/post/outdate-notice.pug
       else
-        !=page.content
+        !=articleBody
     include includes/post/post-copyright.pug
     .tag_share
       if (page.tags.length > 0 && theme.post_meta.post.tags)
